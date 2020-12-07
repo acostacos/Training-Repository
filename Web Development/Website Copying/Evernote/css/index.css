@@ -1,0 +1,77 @@
+:root {
+    --green: #2EA837;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* NavBar */
+nav .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 10rem;
+}
+
+.nav .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav .util-navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav ul li {
+    list-style: none;
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+.nav .logo{
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.nav .logo i {
+    color: var(--green) ;
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.nav .navbar .nav-items {
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    margin-right: 1.5rem;
+}
+
+.navbar .nav-items a:hover{
+    color: var(--green);
+    border-bottom: 3px solid var(--green);
+}
+
+.nav .util-navbar .unav-items {
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    margin-right: 0.5rem;
+}
+
+.util-navbar .unav-items a:hover{
+    color: var(--green);
+}
+
