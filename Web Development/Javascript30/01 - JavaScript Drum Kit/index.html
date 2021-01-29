@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -58,7 +58,23 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  window.addEventListener('keydown', playSound);
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+  function playSound(e){
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if(!audio) return; // end function if no associated key
+    audio.currentTime = 0 // rewind to the start
+    audio.play();
+    key.classList.add('playing'); // add animation
+  }
+
+  function removeTransition(e){
+    if(e.propertyName !== 'transform') return; // only runes if it is a transform transition
+    this.classList.remove('playing');
+  }
 </script>
 
 
