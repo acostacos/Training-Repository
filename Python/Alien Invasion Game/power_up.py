@@ -15,9 +15,17 @@ class PowerUp(Sprite):
         self.rect = self.image.get_rect()
 
         #Position image from the top
-        #self.rect.y = self.screen.rect
+        self.rect.y = self.screen.rect
+
+        #Store a decimal value for the power up's position
+        self.y = float(self.rect.y)
 
     def blitme(self):
-        """Draw alien at current location"""
+        """Draw powerup at current location"""
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+        """Move powerup down"""
+        self.y += self.ai_settings.powerup_speed_factor
+        self.rect.y = self.y
 
