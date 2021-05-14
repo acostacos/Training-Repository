@@ -42,7 +42,23 @@
 
 <button></button>
 <script>
+  // Bubbling - the browser will figure out what you cliked on but also the parents wrapping around that element
+  // Browser will first do a capture (top - down) - will ripple from the body going to the specific item
+  // Browser will start to bubble up (down - top) - will trigger events starting from the specific event to the parents
+  const divs = document.querySelectorAll('div')
+  const button = document.querySelector('button')
 
+  function logText(e){
+    console.log(this.classList.value)
+    e.stopPropagation() // This will stop propagating the event and it will only work on what you want
+  }
+
+  // capture: true will cause the browser to trigger the events while it is still in the capture phase, defalut is false
+  // once: true will listen for a click and then unbind itself, click event will only happen once
+  divs.forEach(div => div.addEventListener('click', logText, { capture: false, once: false }))
+  button.addEventListener('click', function(){
+    console.log('Click')
+  }, {once: true})
 </script>
 </body>
 </html>
